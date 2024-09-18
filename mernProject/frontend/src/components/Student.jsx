@@ -21,7 +21,7 @@ export default function Student() {
 
   const getAllStudents = async () => {
     try {
-      const response = await axios.get("http://localhost:4000/api/v1/student/getAllStudents");
+      const response = await axios.get("http://localhost:5050/api/v1/student/getAllStudents");
       setAllStudents(response.data.students);
       setFilteredStudents(response.data.students);
     } catch (error) {
@@ -42,7 +42,7 @@ export default function Student() {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:4000/api/v1/student/createStudent",
+        "http://localhost:5050/api/v1/student/createStudent",
         formData
       );
       console.log(response.data);
@@ -63,7 +63,7 @@ export default function Student() {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:4000/api/v1/student/deleteStudentById/${id}`);
+      await axios.delete(`http://localhost:5050/api/v1/student/deleteStudentById/${id}`);
       alert("Student deleted successfully!");
       getAllStudents();
     } catch (error) {
@@ -74,7 +74,7 @@ export default function Student() {
 
   const handleEditSubmit = async () => {
     try {
-      const response = await axios.patch(`http://localhost:4000/api/v1/student/updateStudentById/${editId}`, formData);
+      const response = await axios.patch(`http://localhost:5050/api/v1/student/updateStudentById/${editId}`, formData);
       console.log(response.data);
       alert("Student information updated successfully!");
       setShowEdit(false);
@@ -90,7 +90,7 @@ export default function Student() {
       if (editId) {
 
         const res = await axios.get(
-          `http://localhost:4000/api/v1/student/getStudentById/${editId}`
+          `http://localhost:5050/api/v1/student/getStudentById/${editId}`
         );
         console.log(res.data.student, "res")
         setFormData(res.data.student)
