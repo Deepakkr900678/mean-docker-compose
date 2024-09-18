@@ -1,5 +1,4 @@
 # mean-docker-compose
-mean-docker-compose
 
 A simple MERN stack application
 
